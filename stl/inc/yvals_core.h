@@ -943,6 +943,20 @@ _EMIT_STL_ERROR(STL1001, "Unexpected compiler version, expected MSVC Compiler 19
 #define _CONSTEXPR23 inline
 #endif // ^^^ inline (not constexpr) in C++20 and earlier ^^^
 
+// Functions that became constexpr in C++26
+#if _HAS_CXX26
+#define _CONSTEXPR26 constexpr
+#else // ^^^ constexpr in C++26 and later / inline (not constexpr) in C++20 and earlier vvv
+#define _CONSTEXPR26 inline
+#endif // ^^^ inline (not constexpr) in C++20 and earlier ^^^
+
+// Functions that became constexpr in C++29
+#if _HAS_CXX29
+#define _CONSTEXPR29 constexpr
+#else // ^^^ constexpr in C++29 and later / inline (not constexpr) in C++20 and earlier vvv
+#define _CONSTEXPR29 inline
+#endif // ^^^ inline (not constexpr) in C++20 and earlier ^^^
+
 // P2465R3 Standard Library Modules std And std.compat
 #ifdef _BUILD_STD_MODULE
 #if !_HAS_CXX20
